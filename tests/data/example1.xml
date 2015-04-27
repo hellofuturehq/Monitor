@@ -1,0 +1,9 @@
+<dashboard>
+	<page id="page-1">
+		<title>Dashboard Page 1</title>
+		<controlgroup id="controlgroup-1">
+			<title>Control Group 1</title>
+			<control type="bool" call="dev0" />
+		</controlgroup>
+	</page>
+</dashboard>
