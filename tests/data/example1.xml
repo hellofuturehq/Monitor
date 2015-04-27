@@ -3,7 +3,12 @@
 		<title>Dashboard Page 1</title>
 		<controlgroup id="controlgroup-1">
 			<title>Control Group 1</title>
-			<control type="bool" call="dev0" />
+			<control type="bool" call="dev0/foo?id=6174" />
+			<control type="message" call="dev0/foo/msg" />
+		</controlgroup>
+		<controlgroup id="controlgroup-2">
+			<title>Control Group 2</title>
+			<control type="bool" call="dev1/bar" />
 		</controlgroup>
 	</page>
 </dashboard>

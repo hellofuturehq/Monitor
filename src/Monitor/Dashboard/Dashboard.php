@@ -2,23 +2,20 @@
 
 namespace HelloFuture\Monitor\Dashboard;
 
-use \DOMDocument;
+use DOMDocument;
+use DOMXpath;
+use RunTimeException;
 
 class Dashboard {
 
-	protected $config;
+	protected $pages = [];
 
-	public function __construct($configPath) {
-		$this->config = new DOMDocument();
-		$this->config->load($configPath);
+	public function addPage(Page $page) {
+		$this->pages[] = $page;
 	}
 
-	public function getRootNode() {
-		return $this->config->documentElement;
-	}
-
-	public function isValid() {
-		return $this->getRootNode()->nodeName == 'dashboard';
+	public function getPages() {
+		return $this->pages;
 	}
 
 }

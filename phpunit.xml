@@ -5,7 +5,7 @@
          syntaxCheck="false">
     <testsuites>
         <testsuite name="Hellofuture Monitor">
-            <file>tests/DashboardTest.php</file>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
