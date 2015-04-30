@@ -8,20 +8,37 @@ use RunTimeException;
 
 class Control {
 
-	protected $type;
 	protected $call;
+	protected $params;
 
-	public function __construct($type, $call) {
-		$this->type = $type;
-		$this->call = $call;
-	}
-
-	public function getType() {
-		return $this->type;
+	public function __construct($call) {
+		$this->call   = $call;
+		$this->params = (object) [];
 	}
 
 	public function getCall() {
 		return $this->call;
 	}
+
+	public function __get($key) {
+		return $this->params->$key;
+	}
+
+	public function __set($key, $value) {
+		$this->params->$key = $value;
+	}
+
+	public function __isset($key) {
+		return isset($this->params->$key);
+	}
+
+	public function __unset($key) {
+		unset($this->params->$key);
+	}
+
+	public function getParams() {
+		return $this->params;
+	}
+
 
 }

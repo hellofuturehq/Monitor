@@ -58,9 +58,15 @@ class DashboardDOMFactory {
 	protected function addControlsToControlgroup($controlgroup, $domElement) {
 		$list  = $this->query('control', $domElement);
 		foreach($list as $childElement) {
-			$type    = $childElement->getAttribute('type');
 			$call    = $childElement->getAttribute('call');
-			$control = new Control($type, $call);
+			$control = new Control($call);
+			$params  = $this->query('param', $childElement);
+			foreach($params as $param) {
+				$key   = $param->getAttribute('key');
+				$value = $param->getAttribute('value');
+				$control->$key = $value;
+			}
+
 			$controlgroup->addControl($control);
 		}
 	}

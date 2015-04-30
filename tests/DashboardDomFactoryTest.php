@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__. '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 class DashboardTest extends PHPUnit_Framework_TestCase {
 
@@ -32,8 +32,12 @@ class DashboardTest extends PHPUnit_Framework_TestCase {
 
 		$control = $controls[0];
 		$this->assertInstanceOf('\HelloFuture\Monitor\Dashboard\Control', $control);
-		$this->assertEquals('bool', $control->getType());
-		$this->assertEquals('dev0/foo?id=6174', $control->getCall());
+		$this->assertEquals('Example\Foo\Running', $control->getCall());
+
+		$this->assertEquals((object) ['id' => '6174'], $control->getParams());
+		$this->assertEquals('6174', $control->id);
+		$this->assertTrue(isset($control->id));
+		$this->assertFalse(isset($control->key));
 	}
 
 }
