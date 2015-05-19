@@ -1,7 +1,6 @@
 <?php
 
 use HelloFuture\Monitor\Call;
-use HelloFuture\Monitor\WebCall;
 use HelloFuture\Monitor\Dashboard\Control;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -20,17 +19,7 @@ class SimpleCallTest extends PHPUnit_Framework_TestCase {
 		$this->assertSame(1,                     count((array) $result->request->params));
 		$this->assertSame($callClass->getType(), $result->response->type);
 		$this->assertSame(42,                    $result->response->data->bar);
-		$this->assertGreaterThanOrEqual(.06,     $result->response->duration);
-	}
-
-	public function testWebCall() {
-		$control = new Control('ExampleWebCall');
-		$result  = $control->run();
-
-		$callClass = new ExampleWebCall;
-
-		$this->assertEquals((object) ['fee' => 4078], $result->response->data);
-		$this->assertSame($callClass->getUrl(),      $result->url);
+		$this->assertGreaterThanOrEqual(.06,       $result->response->duration);
 	}
 
 }
@@ -43,19 +32,7 @@ class ExampleCall extends Call {
 	}
 
 	public function getType() {
-		return 'unittest.something';
-	}
-
-}
-
-class ExampleWebCall extends WebCall {
-
-	public function getUrl() {
-		return 'http://localhost:8000/test-1.json';
-	}
-
-	public function getType() {
-		return 'unittest.something';
+		return 'server.running';
 	}
 
 }
