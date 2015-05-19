@@ -6,7 +6,7 @@ use HelloFuture\Monitor\Dashboard\Control;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-class SimpleCallTest extends PHPUnit_Framework_TestCase {
+class CallTest extends PHPUnit_Framework_TestCase {
 
 	public function testCall() {
 		$control = new Control('ExampleCall');
