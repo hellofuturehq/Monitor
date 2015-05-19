@@ -5,6 +5,7 @@ namespace HelloFuture\Monitor\Dashboard;
 use DOMDocument;
 use DOMXpath;
 use RunTimeException;
+use HelloFuture\Monitor\Call;
 
 class Control {
 
@@ -40,5 +41,10 @@ class Control {
 		return $this->params;
 	}
 
+	public function run() {
+		$className = $this->getCall();
+		$call      = new $className($this->getParams());
+		return $call();
+	}
 
 }
