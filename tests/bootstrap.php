@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Europe/Stockholm');
+
 // Command that starts the built-in web server
 $command = sprintf(
 	'php -S %s:%d -t %s >/dev/null 2>&1 & echo $!',
