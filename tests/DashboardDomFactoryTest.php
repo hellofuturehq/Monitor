@@ -34,10 +34,10 @@ class DashboardTest extends PHPUnit_Framework_TestCase {
 		$this->assertInstanceOf('\HelloFuture\Monitor\Dashboard\Control', $control);
 		$this->assertSame('Example\Foo\Running', $control->getCall());
 
-		$this->assertEquals((object) ['id' => '6174'], $control->getParams());
-		$this->assertSame('6174', $control->id);
-		$this->assertTrue(isset($control->id));
-		$this->assertFalse(isset($control->key));
+		$this->assertEquals(['id' => '6174'], $control->getParams());
+		$this->assertSame('6174', $control['id']);
+		$this->assertTrue(isset($control['id']));
+		$this->assertFalse(isset($control['unknownkey']));
 	}
 
 }

@@ -9,13 +9,13 @@ class CallTest extends PHPUnit_Framework_TestCase {
 
 	public function testCall() {
 		$control = new Control('ExampleCall');
-		$control->foo = 23;
+		$control['foo'] = 23;
 		$result  = $control->run();
 
 		$callClass = new ExampleCall;
 
 		$this->assertSame(get_class($callClass), $result->request->class);
-		$this->assertSame(23,                    $result->request->params->foo);
+		$this->assertSame(23,                    $result->request->params['foo']);
 		$this->assertSame(1,                     count((array) $result->request->params));
 		$this->assertSame($callClass->getType(), $result->response->type);
 		$this->assertSame(42,                    $result->response->data->bar);

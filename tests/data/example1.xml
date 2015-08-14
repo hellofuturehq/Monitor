@@ -4,7 +4,7 @@
 		<controlgroup id="controlgroup-1">
 			<title>Control Group 1</title>
 			<control call="Example\Foo\Running">
-				<param key="id" value="6174" />
+				<param key="id">6174</param>
 			</control>
 			<control call="Example\Foo\Msg" />
 		</controlgroup>

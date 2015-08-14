@@ -63,8 +63,8 @@ class DashboardDOMFactory {
 			$params  = $this->query('param', $childElement);
 			foreach($params as $param) {
 				$key   = $param->getAttribute('key');
-				$value = $param->getAttribute('value');
-				$control->$key = $value;
+				$value = $param->textContent;
+				$control[$key] = $value;
 			}
 
 			$controlgroup->addControl($control);

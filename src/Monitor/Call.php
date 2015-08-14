@@ -7,7 +7,7 @@ abstract class Call {
 	protected $params;
 
 	public function __construct($params = array()) {
-		$this->params = (object) $params;
+		$this->params = $params;
 	}
 
 	public function __invoke() {
